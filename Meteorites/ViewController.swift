@@ -15,9 +15,13 @@ class ViewController: UIViewController {
     let tron = TRON(baseURL: Constants.METEORITES_LINK + Constants.API_STR.removingPercentEncoding! + Constants.API_TOKEN.removingPercentEncoding!)
     
     class Meteorites: JSONDecodable {
+        var meteorites: [Meteor]
+        
         required init(json: JSON) throws {
-            for meteor in json.array! {
-                let dateString = meteor["year"]
+            var meteorites = [Meteor]()
+            
+            for meteorJson in json.array! {
+                let dateString = meteorJson["year"]
                 if dateString != JSON.null {
                     let dateFormatter = DateFormatter()
                     
@@ -27,11 +31,22 @@ class ViewController: UIViewController {
 
                     if let compareDate = dateFormatter.date(from: "2011-01-01T00:00:00.000") {
                         if date! >= compareDate {
-                            print(date)
+                            let meteor = Meteor()
+                            meteor.date = date!
+                            meteor.name = meteorJson["name"].stringValue
+                            meteor.fall = meteorJson["fall"].stringValue
+                            meteor.id = meteorJson["id"].intValue
+                            meteor.reclong = meteorJson["reclong"].stringValue
+                            meteor.reclat = meteorJson["reclat"].stringValue
+                            meteor.mass = meteorJson["mass"].intValue
+                            meteor.nametype = meteorJson["nametype"].stringValue
+                            meteor.recclass = meteorJson["recclass"].stringValue
+                            meteorites.append(meteor)
                         }
                     }
                 }
             }
+            self.meteorites = meteorites
         }
     }
     
@@ -51,6 +66,7 @@ class ViewController: UIViewController {
         let request: APIRequest<Meteorites, JSONError> = tron.request("")
         request.perform(withSuccess: { (meteorites) in
             print("succesfully fetchec")
+            print(meteorites.meteorites.count)
         }) { (err) in
             print("error", err)
         }
