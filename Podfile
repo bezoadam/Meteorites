@@ -7,4 +7,5 @@ target 'Meteorites' do
 
   # Pods for Meteorites
   pod 'RealmSwift’
+  pod 'TRON', '~> 2.0.0'
 end
