@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8179639E97DB23FCA2AFD8F9 /* Pods_Meteorites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */; };
+		844C08ED1EAA89BC00132287 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C08EC1EAA89BC00132287 /* DataManager.swift */; };
 		847C816C1EA9FBC30023BB02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C816B1EA9FBC30023BB02 /* AppDelegate.swift */; };
 		847C816E1EA9FBC30023BB02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C816D1EA9FBC30023BB02 /* ViewController.swift */; };
 		847C81711EA9FBC30023BB02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847C816F1EA9FBC30023BB02 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		44601AABDA4EF4F4F6EA604C /* Pods-Meteorites.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteorites.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites.release.xcconfig"; sourceTree = "<group>"; };
 		63B83EA3B583D3D5B9245D60 /* Pods-Meteorites.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteorites.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites.debug.xcconfig"; sourceTree = "<group>"; };
+		844C08EC1EAA89BC00132287 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		847C81681EA9FBC30023BB02 /* Meteorites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meteorites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847C816B1EA9FBC30023BB02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847C816D1EA9FBC30023BB02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				847C81821EAA16650023BB02 /* Service.swift */,
+				844C08EC1EAA89BC00132287 /* DataManager.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847C816E1EA9FBC30023BB02 /* ViewController.swift in Sources */,
+				844C08ED1EAA89BC00132287 /* DataManager.swift in Sources */,
 				847C81831EAA16650023BB02 /* Service.swift in Sources */,
 				847C816C1EA9FBC30023BB02 /* AppDelegate.swift in Sources */,
 				847C81861EAA2A6B0023BB02 /* Meteor.swift in Sources */,

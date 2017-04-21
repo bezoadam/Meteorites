@@ -9,6 +9,7 @@
 import Foundation
 import TRON
 import SwiftyJSON
+import RealmSwift
 
 struct Service {
     
@@ -58,12 +59,16 @@ struct Service {
         }
     }
     
-    func fetchData(completion: @escaping () -> ()) {
+    func fetchData(completion: @escaping ([Meteor]) -> ()) {
         let request: APIRequest<Meteorites, JSONError> = tron.request("")
         request.perform(withSuccess: { (meteorites) in
-            print("succesfully fetchec")
             print(meteorites.meteorites.count)
-            completion()
+            let manager = DataManager()
+            
+            for m in meteorites.meteorites {
+                manager.add(meteor: m)
+            }
+            completion(meteorites.meteorites)
         }) { (err) in
             print("error", err)
         }
