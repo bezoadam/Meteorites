@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8179639E97DB23FCA2AFD8F9 /* Pods_Meteorites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */; };
 		847C816C1EA9FBC30023BB02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C816B1EA9FBC30023BB02 /* AppDelegate.swift */; };
 		847C816E1EA9FBC30023BB02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C816D1EA9FBC30023BB02 /* ViewController.swift */; };
 		847C81711EA9FBC30023BB02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847C816F1EA9FBC30023BB02 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44601AABDA4EF4F4F6EA604C /* Pods-Meteorites.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteorites.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites.release.xcconfig"; sourceTree = "<group>"; };
+		63B83EA3B583D3D5B9245D60 /* Pods-Meteorites.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteorites.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites.debug.xcconfig"; sourceTree = "<group>"; };
 		847C81681EA9FBC30023BB02 /* Meteorites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meteorites.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847C816B1EA9FBC30023BB02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847C816D1EA9FBC30023BB02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		847C81721EA9FBC30023BB02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		847C81751EA9FBC30023BB02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		847C81771EA9FBC30023BB02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meteorites.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8179639E97DB23FCA2AFD8F9 /* Pods_Meteorites.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		356D4840BEFBCBD14CCDD584 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63B83EA3B583D3D5B9245D60 /* Pods-Meteorites.debug.xcconfig */,
+				44601AABDA4EF4F4F6EA604C /* Pods-Meteorites.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		847C815F1EA9FBC30023BB02 = {
 			isa = PBXGroup;
 			children = (
 				847C816A1EA9FBC30023BB02 /* Meteorites */,
 				847C81691EA9FBC30023BB02 /* Products */,
+				356D4840BEFBCBD14CCDD584 /* Pods */,
+				D42FACE47E7EBB4746816CF7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = Meteorites;
 			sourceTree = "<group>";
 		};
+		D42FACE47E7EBB4746816CF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 847C817A1EA9FBC30023BB02 /* Build configuration list for PBXNativeTarget "Meteorites" */;
 			buildPhases = (
+				D806CAEBB47F8C20433F84C0 /* [CP] Check Pods Manifest.lock */,
 				847C81641EA9FBC30023BB02 /* Sources */,
 				847C81651EA9FBC30023BB02 /* Frameworks */,
 				847C81661EA9FBC30023BB02 /* Resources */,
+				C422AA854461BCAF4F30BA17 /* [CP] Embed Pods Frameworks */,
+				92998E3881195457794ED9EF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92998E3881195457794ED9EF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C422AA854461BCAF4F30BA17 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D806CAEBB47F8C20433F84C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		847C81641EA9FBC30023BB02 /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		847C817B1EA9FBC30023BB02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63B83EA3B583D3D5B9245D60 /* Pods-Meteorites.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GKE89JZK98;
@@ -272,6 +348,7 @@
 		};
 		847C817C1EA9FBC30023BB02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44601AABDA4EF4F4F6EA604C /* Pods-Meteorites.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GKE89JZK98;
