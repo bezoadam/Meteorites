@@ -12,6 +12,7 @@
 		844A4BAC1EAB84E800CAE710 /* MeteorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A4BAB1EAB84E800CAE710 /* MeteorController.swift */; };
 		844A4BB01EAB8BB300CAE710 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844A4BAF1EAB8BB300CAE710 /* MapKit.framework */; };
 		844A4BB21EABA22A00CAE710 /* MeteorAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A4BB11EABA22A00CAE710 /* MeteorAnnotation.swift */; };
+		844A4BB41EABAECC00CAE710 /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A4BB31EABAECC00CAE710 /* CustomPointAnnotation.swift */; };
 		844C08ED1EAA89BC00132287 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C08EC1EAA89BC00132287 /* DataManager.swift */; };
 		8467518D1EAA9F1D00ED0605 /* MeteorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467518C1EAA9F1D00ED0605 /* MeteorCell.swift */; };
 		847C816C1EA9FBC30023BB02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C816B1EA9FBC30023BB02 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		844A4BAB1EAB84E800CAE710 /* MeteorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorController.swift; sourceTree = "<group>"; };
 		844A4BAF1EAB8BB300CAE710 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		844A4BB11EABA22A00CAE710 /* MeteorAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorAnnotation.swift; sourceTree = "<group>"; };
+		844A4BB31EABAECC00CAE710 /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		844C08EC1EAA89BC00132287 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		8467518C1EAA9F1D00ED0605 /* MeteorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorCell.swift; sourceTree = "<group>"; };
 		847C81681EA9FBC30023BB02 /* Meteorites.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meteorites.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 		847C81841EAA2A4B0023BB02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				844A4BB31EABAECC00CAE710 /* CustomPointAnnotation.swift */,
 				847C81851EAA2A6B0023BB02 /* Meteor.swift */,
 				844A4BB11EABA22A00CAE710 /* MeteorAnnotation.swift */,
 			);
@@ -297,6 +300,7 @@
 				844A4BAC1EAB84E800CAE710 /* MeteorController.swift in Sources */,
 				847C816E1EA9FBC30023BB02 /* ViewController.swift in Sources */,
 				844C08ED1EAA89BC00132287 /* DataManager.swift in Sources */,
+				844A4BB41EABAECC00CAE710 /* CustomPointAnnotation.swift in Sources */,
 				844A4BB21EABA22A00CAE710 /* MeteorAnnotation.swift in Sources */,
 				844A4BA91EAB7D4400CAE710 /* Extensions.swift in Sources */,
 				847C81831EAA16650023BB02 /* Service.swift in Sources */,

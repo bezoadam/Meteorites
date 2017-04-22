@@ -27,6 +27,6 @@ class MeteorAnnotation: NSObject, MKAnnotation {
     }
     
     var subtitle: String? {
-        return title
+        return String(mass)
     }
 }

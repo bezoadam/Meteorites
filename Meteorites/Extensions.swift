@@ -16,26 +16,21 @@ extension Int {
 }
 
 extension MeteorController: MKMapViewDelegate {
-    
-    // 1
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if let annotation = annotation as? MeteorAnnotation {
-            let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKPinAnnotationView { // 2
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                // 3
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                let btn = UIButton(type: .detailDisclosure)
-                view.rightCalloutAccessoryView = btn as UIView
-            }
-            return view
+        let reuseIdentifier = "pin"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
         }
-        return nil
+        
+        let customPointAnnotation = annotation as! CustomPointAnnotation
+        annotationView?.image = UIImage(named: customPointAnnotation.pinCustomImageName)
+        
+        return annotationView
     }
 }

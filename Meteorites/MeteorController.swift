@@ -13,6 +13,8 @@ class MeteorController: UIViewController {
 
     var meteorLocation: CLLocation?
     var mapView: MKMapView!
+    var pointAnnotation:CustomPointAnnotation!
+    var pinAnnotationView:MKPinAnnotationView!
     var meteor: Meteor? {
         didSet {
             navigationItem.title = meteor?.name
@@ -51,8 +53,15 @@ class MeteorController: UIViewController {
         meteorLocation = CLLocation(latitude: latitude.doubleValue, longitude: longitude.doubleValue)
         centerMapOnLocation(location: meteorLocation!)
         
-        let meteorAnnotate = MeteorAnnotation(title: (meteor?.name)!, id: (meteor?.id)!, mass: (meteor?.mass)!, date: (meteor?.date)!, coordinate: CLLocationCoordinate2D(latitude: latitude.doubleValue, longitude: longitude.doubleValue))
-        mapView.addAnnotation(meteorAnnotate)
+        pointAnnotation = CustomPointAnnotation()
+        pointAnnotation.pinCustomImageName = "meteor"
+        pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: latitude.doubleValue, longitude: longitude.doubleValue)
+        pointAnnotation.title = meteor?.name
+        pointAnnotation.subtitle = (meteor?.mass.stringValue)! + " g"
+        
+        pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
+        mapView.addAnnotation(pinAnnotationView.annotation!)
+
     }
     
     let regionRadius: CLLocationDistance = 5000
