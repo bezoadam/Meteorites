@@ -14,9 +14,9 @@ class Meteor: Object {
     dynamic var name = ""
     dynamic var nametype = ""
     dynamic var fall = ""
-    dynamic var reclat = ""
+    dynamic var reclat = 0.0
     dynamic var id = 0
-    dynamic var reclong = ""
+    dynamic var reclong = 0.0
     dynamic var date =  Date()
     dynamic var mass = 0
     dynamic var recclass = ""

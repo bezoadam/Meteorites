@@ -21,6 +21,7 @@ struct Service {
         var meteorites: [Meteor]
         
         required init(json: JSON) throws {
+            print("fetched")
             var meteorites = [Meteor]()
             
             for meteorJson in json.array! {
@@ -39,8 +40,8 @@ struct Service {
                             meteor.name = meteorJson["name"].stringValue
                             meteor.fall = meteorJson["fall"].stringValue
                             meteor.id = meteorJson["id"].intValue
-                            meteor.reclong = meteorJson["reclong"].stringValue
-                            meteor.reclat = meteorJson["reclat"].stringValue
+                            meteor.reclong = meteorJson["reclong"].doubleValue
+                            meteor.reclat = meteorJson["reclat"].doubleValue
                             meteor.mass = meteorJson["mass"].intValue
                             meteor.nametype = meteorJson["nametype"].stringValue
                             meteor.recclass = meteorJson["recclass"].stringValue
@@ -60,6 +61,7 @@ struct Service {
     }
     
     func fetchData(completion: @escaping ([Meteor]) -> ()) {
+        print("fetchig")
         let request: APIRequest<Meteorites, JSONError> = tron.request("")
         request.perform(withSuccess: { (meteorites) in
             print(meteorites.meteorites.count)

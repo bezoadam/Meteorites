@@ -21,6 +21,8 @@ class MeteorController: UIViewController {
         }
     }
     
+    var meteorites : [Meteor]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,8 +32,8 @@ class MeteorController: UIViewController {
 
 
     func setupMapKit() {
-        let latitude = meteor?.reclat as! NSString
-        let longitude = meteor?.reclong as! NSString
+        let latitude = meteor?.reclat
+        let longitude = meteor?.reclong
         
         mapView = MKMapView()
         
@@ -50,17 +52,19 @@ class MeteorController: UIViewController {
         
         view.addSubview(mapView)
         
-        meteorLocation = CLLocation(latitude: latitude.doubleValue, longitude: longitude.doubleValue)
+        meteorLocation = CLLocation(latitude: latitude!, longitude: longitude!)
         centerMapOnLocation(location: meteorLocation!)
         
-        pointAnnotation = CustomPointAnnotation()
-        pointAnnotation.pinCustomImageName = "meteor"
-        pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: latitude.doubleValue, longitude: longitude.doubleValue)
-        pointAnnotation.title = meteor?.name
-        pointAnnotation.subtitle = (meteor?.mass.stringValue)! + " g"
-        
-        pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
-        mapView.addAnnotation(pinAnnotationView.annotation!)
+        for m in meteorites {
+            pointAnnotation = CustomPointAnnotation()
+            pointAnnotation.pinCustomImageName = "meteor"
+            pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: m.reclat, longitude: m.reclong)
+            pointAnnotation.title = m.name
+            pointAnnotation.subtitle = (m.mass.stringValue) + " g"
+            
+            pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
+            mapView.addAnnotation(pinAnnotationView.annotation!)
+        }
 
     }
     

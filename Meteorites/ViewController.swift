@@ -14,7 +14,7 @@ import DynamicColor
 
 class ViewController: UITableViewController {
     
-    var meteorites : [Meteor]!
+    var meteorites : [Meteor]?
     let originalColor = DynamicColor(hexString: "#c0392b")
     let cellId = "cellId"
     
@@ -22,17 +22,19 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Meteorites"
         let manager = DataManager()
-        let results = manager.objects(type: Meteor.self)
-        meteorites = Array(results!).sorted(by: { $0.mass > $1.mass})
 //        manager.deleteAll()
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        if let results = manager.objects(type: Meteor.self) {
+            self.meteorites = Array(results).sorted(by: { $0.mass > $1.mass})
+        }
+
         self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
         
-        if meteorites?.count == 0 {
+        if self.meteorites?.count == 0 {
             Service.sharedInstance.fetchData(completion: { (meteorites) in
-                self.meteorites = meteorites
+                self.meteorites = Array(meteorites).sorted(by: { $0.mass > $1.mass})
+                self.tableView.dataSource = self
+                self.tableView.delegate = self
+                self.tableView.reloadData()
             })
         }
     }
@@ -64,9 +66,10 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedMeteor = meteorites[indexPath.row]
+        let selectedMeteor = meteorites?[indexPath.row]
         let vc = MeteorController()
         vc.meteor = selectedMeteor
+        vc.meteorites = meteorites
         tableView.deselectRow(at: indexPath, animated: false)
         navigationController?.pushViewController(vc, animated: true)
     }
