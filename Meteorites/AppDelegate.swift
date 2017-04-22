@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DynamicColor
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let viewController = ViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
+        
+        let originalColor = DynamicColor(hexString: "#c0392b")
+        
+        let navigationBarAppearace = UINavigationBar.appearance()
+        navigationBarAppearace.tintColor = originalColor.lighter()
+        navigationBarAppearace.barTintColor = originalColor.darkened()
+        
+        // change navigation item title color
+        navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 30)!, NSForegroundColorAttributeName: originalColor.lighter()]
+        
         let navigationController = UINavigationController(rootViewController: viewController)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationController

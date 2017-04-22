@@ -10,10 +10,12 @@ import UIKit
 import TRON
 import SwiftyJSON
 import RealmSwift
+import DynamicColor
 
 class ViewController: UITableViewController {
     
     var meteorites : [Meteor]!
+    let originalColor = DynamicColor(hexString: "#c0392b")
     let cellId = "cellId"
     
     override func viewDidLoad() {
@@ -21,23 +23,18 @@ class ViewController: UITableViewController {
         self.title = "Meteorites"
         let manager = DataManager()
         let results = manager.objects(type: Meteor.self)
-//        .sort(by: { $0.meetingDate.compare($1.meetingDate) == .orderedAscending})
         meteorites = Array(results!).sorted(by: { $0.mass > $1.mass})
 //        manager.deleteAll()
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-//        self.tableView.register(MeteorCell.self, forCellReuseIdentifier: cellId)
+        self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
         
         if meteorites?.count == 0 {
             Service.sharedInstance.fetchData(completion: { (meteorites) in
                 self.meteorites = meteorites
             })
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,6 +46,7 @@ class ViewController: UITableViewController {
         
         cell?.textLabel?.text = meteorites?[indexPath.row].name
         cell?.detailTextLabel?.text = meteorites?[indexPath.row].mass.stringValue
+        cell?.backgroundColor = originalColor.lighter(amount: 0.45)
         cell?.selectionStyle = .none
         return cell!
     }
@@ -64,10 +62,14 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-}
-
-extension Int {
-    var stringValue:String {
-        return "\(self)"
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedMeteor = meteorites[indexPath.row]
+        let vc = MeteorController()
+        vc.meteor = selectedMeteor
+        tableView.deselectRow(at: indexPath, animated: false)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+

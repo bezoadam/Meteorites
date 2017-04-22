@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DynamicColor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Meteorites.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>24167EE71C8583E90C2A05C501CB081B</key>
+		<key>0C32E6F536D46E724A501FF471D04384</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3E2AC6CDF4608A0EC817114DE6DCB7D8</key>
+		<key>19864AB8F7B8E9064740E008772C4404</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>460C56DD987D2FFB63DAD310E2CF08B7</key>
+		<key>1DD7D16A7DEE85D7E8C421CE5EBF1E50</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7C5D30997D5BE81922B12585C59CB228</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8DF484D580002B45F8A8DC15097D1A59</key>
+		<key>925B12443181DCD1CD306CC25DDFA803</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2DA52E2074A08E786887060E34456E0</key>
+		<key>C2A380CB3B15D2D77160B2F244E60118</key>
 		<dict>
 			<key>primary</key>
 			<true/>

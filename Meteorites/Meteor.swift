@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import MapKit
 
 class Meteor: Object {
     dynamic var name = ""
