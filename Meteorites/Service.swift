@@ -45,6 +45,7 @@ struct Service {
                             meteor.mass = meteorJson["mass"].intValue
                             meteor.nametype = meteorJson["nametype"].stringValue
                             meteor.recclass = meteorJson["recclass"].stringValue
+                            meteor.lastUpdate = NSDate()
                             meteorites.append(meteor)
                         }
                     }

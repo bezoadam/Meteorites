@@ -20,5 +20,5 @@ class Meteor: Object {
     dynamic var date =  Date()
     dynamic var mass = 0
     dynamic var recclass = ""
-    
+    dynamic var lastUpdate = NSDate()
 }

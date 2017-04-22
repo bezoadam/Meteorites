@@ -23,10 +23,23 @@ class ViewController: UITableViewController {
         self.title = "Meteorites"
         let manager = DataManager()
 //        manager.deleteAll()
+        
         if let results = manager.objects(type: Meteor.self) {
             self.meteorites = Array(results).sorted(by: { $0.mass > $1.mass})
+            if (self.meteorites?.count)! > 0 && InternetReachability.isConnectedToNetwork(){
+                let oneMeteorLastUpdateTime = Int32((self.meteorites?[0].lastUpdate.timeIntervalSinceNow)!)
+                if abs(oneMeteorLastUpdateTime) > 86400 {
+                    manager.deleteAll()
+                    Service.sharedInstance.fetchData(completion: { (meteorites) in
+                        self.meteorites = Array(meteorites).sorted(by: { $0.mass > $1.mass})
+                        self.tableView.dataSource = self
+                        self.tableView.delegate = self
+                        self.tableView.reloadData()
+                    })
+                }
+            }
         }
-
+        
         self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
         
         if self.meteorites?.count == 0 {
@@ -38,7 +51,7 @@ class ViewController: UITableViewController {
             })
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell : UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as? MeteorCell
@@ -47,14 +60,14 @@ class ViewController: UITableViewController {
         }
         
         cell?.textLabel?.text = meteorites?[indexPath.row].name
-        cell?.detailTextLabel?.text = meteorites?[indexPath.row].mass.stringValue
+        cell?.detailTextLabel?.text = (meteorites?[indexPath.row].mass.stringValue)! + " g"
         cell?.backgroundColor = originalColor.lighter(amount: 0.45)
         cell?.selectionStyle = .none
         return cell!
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (meteorites?.count)!
+        return (meteorites!.count)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

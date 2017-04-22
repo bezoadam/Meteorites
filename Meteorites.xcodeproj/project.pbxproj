@@ -23,6 +23,7 @@
 		847C81801EAA02EC0023BB02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C817F1EAA02EC0023BB02 /* Constants.swift */; };
 		847C81831EAA16650023BB02 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C81821EAA16650023BB02 /* Service.swift */; };
 		847C81861EAA2A6B0023BB02 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C81851EAA2A6B0023BB02 /* Meteor.swift */; };
+		847EC7A51EABDCB8009FA21C /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EC7A41EABDCB8009FA21C /* InternetReachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		847C817F1EAA02EC0023BB02 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		847C81821EAA16650023BB02 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		847C81851EAA2A6B0023BB02 /* Meteor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meteor.swift; sourceTree = "<group>"; };
+		847EC7A41EABDCB8009FA21C /* InternetReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetReachability.swift; sourceTree = "<group>"; };
 		F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meteorites.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 			children = (
 				847C81821EAA16650023BB02 /* Service.swift */,
 				844C08EC1EAA89BC00132287 /* DataManager.swift */,
+				847EC7A41EABDCB8009FA21C /* InternetReachability.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				847C816C1EA9FBC30023BB02 /* AppDelegate.swift in Sources */,
 				847C81861EAA2A6B0023BB02 /* Meteor.swift in Sources */,
 				847C81801EAA02EC0023BB02 /* Constants.swift in Sources */,
+				847EC7A51EABDCB8009FA21C /* InternetReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
