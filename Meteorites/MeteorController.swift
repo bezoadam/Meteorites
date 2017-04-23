@@ -37,6 +37,7 @@ class MeteorController: UIViewController {
         let menuRightNavigationController = UISideMenuNavigationController(rootViewController: allMeteoritesVC)
 
         SideMenuManager.menuRightNavigationController = menuRightNavigationController
+        SideMenuManager.menuWidth = max(round(min((self.view.frame.width), (self.view.frame.height)) * 0.5), 240)
         
         SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
@@ -94,4 +95,10 @@ class MeteorController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        DispatchQueue.main.async {
+            self.mapView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        }
+    }
 }
