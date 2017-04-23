@@ -53,3 +53,9 @@ extension Sequence where Iterator.Element: OptionalType {
         return result
     }
 }
+
+extension Double {
+    func toString() -> String {
+        return String(format: "%.5f",self)
+    }
+}

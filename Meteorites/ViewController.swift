@@ -91,22 +91,21 @@ class ViewController: UITableViewController {
             return cell!
         }
         else {
-            if let _ = meteorites?[getParentCellIndex(expansionIndex: indexPath.row)] {
-                //  Create an ExpansionCell
+            if let m = meteorites?[getParentCellIndex(expansionIndex: indexPath.row)] {
                 var cell : MeteorDetailCell? = tableView.dequeueReusableCell(withIdentifier: cellDetailId) as? MeteorDetailCell
                 if cell == nil {
                     cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellDetailId) as? MeteorDetailCell
                 }
                 
-                //  Get the index of the parent Cell (containing the data)
-                let parentCellIndex = getParentCellIndex(expansionIndex: indexPath.row)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                let str = dateFormatter.string(from:m.date)
                 
-                //  Get the index of the flight data (e.g. if there are multiple ExpansionCells
-                let flightIndex = indexPath.row - parentCellIndex - 1
-                
-                //  Set the cell's data
-                cell?.textLabel?.text = meteorites?[flightIndex]?.name
-                cell?.timeLabel.text = "test"
+                cell?.isUserInteractionEnabled = false
+                cell?.dateLabel.text = str
+                cell?.nameLabel.text = m.name + " - " + m.id.stringValue
+                cell?.gramsLabel.text = m.mass.stringValue + " g"
+                cell?.geoLabel.text = m.reclat.toString() + "," + m.reclong.toString()
                 cell?.backgroundColor = originalColor.lighter(amount: 0.5)
                 cell?.selectionStyle = .none
                 return cell!
@@ -158,7 +157,7 @@ class ViewController: UITableViewController {
             return 60
         }
         else {
-            return 120
+            return 128
         }
     }
     
