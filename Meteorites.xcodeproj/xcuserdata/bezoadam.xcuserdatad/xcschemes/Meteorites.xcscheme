@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "84C95D931EACA30300162C16"
+               BuildableName = "MeteoritesTests2.xctest"
+               BlueprintName = "MeteoritesTests2"
+               ReferencedContainer = "container:Meteorites.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "84C95DA11EACA39700162C16"
+               BuildableName = "MeteoritesTests.xctest"
+               BlueprintName = "MeteoritesTests"
+               ReferencedContainer = "container:Meteorites.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
