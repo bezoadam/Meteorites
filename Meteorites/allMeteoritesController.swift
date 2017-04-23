@@ -13,12 +13,12 @@ class allMeteoritesController: UITableViewController {
 
     let cellId = "cellId"
     let originalColor = DynamicColor(hexString: "#c0392b")
-    var meteorites: [Meteor]!
+    var meteorites: [Meteor?]!
     weak var parentVC : MeteorController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(meteorites.count)
 
     }
 
@@ -38,16 +38,19 @@ class allMeteoritesController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell : UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as? MeteorCell
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
+        if let meteor = meteorites?[indexPath.row] {
+            var cell : UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as? MeteorCell
+            if cell == nil {
+                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
+            }
+            
+            cell?.textLabel?.text = meteor.name
+            cell?.detailTextLabel?.text = (meteor.mass.stringValue) + " g"
+            cell?.backgroundColor = originalColor.lighter(amount: 0.45)
+            cell?.selectionStyle = .none
+            return cell!
         }
-        
-        cell?.textLabel?.text = meteorites?[indexPath.row].name
-        cell?.detailTextLabel?.text = (meteorites?[indexPath.row].mass.stringValue)! + " g"
-        cell?.backgroundColor = originalColor.lighter(amount: 0.45)
-        cell?.selectionStyle = .none
-        return cell!
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

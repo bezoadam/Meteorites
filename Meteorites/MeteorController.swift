@@ -22,7 +22,7 @@ class MeteorController: UIViewController {
         }
     }
     
-    var meteorites : [Meteor]!
+    var meteorites : [Meteor?]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,15 +75,17 @@ class MeteorController: UIViewController {
     
         reloadRegion()
         
-        for m in meteorites {
-            pointAnnotation = CustomPointAnnotation()
-            pointAnnotation.pinCustomImageName = "meteor"
-            pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: m.reclat, longitude: m.reclong)
-            pointAnnotation.title = m.name
-            pointAnnotation.subtitle = (m.mass.stringValue) + " g"
-            
-            pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
-            mapView.addAnnotation(pinAnnotationView.annotation!)
+        for i in 1...meteorites.count {
+            if let m = meteorites[i - 1]{
+                pointAnnotation = CustomPointAnnotation()
+                pointAnnotation.pinCustomImageName = "meteor"
+                pointAnnotation.coordinate = CLLocationCoordinate2D(latitude: m.reclat, longitude: m.reclong)
+                pointAnnotation.title = m.name
+                pointAnnotation.subtitle = (m.mass.stringValue) + " g"
+                
+                pinAnnotationView = MKPinAnnotationView(annotation: pointAnnotation, reuseIdentifier: "pin")
+                mapView.addAnnotation(pinAnnotationView.annotation!)
+            }
         }
 
     }
