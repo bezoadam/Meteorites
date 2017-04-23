@@ -14,10 +14,11 @@ import DynamicColor
 
 class ViewController: UITableViewController {
     
-    var meteorites : [Meteor?]?
+    var meteorites: [Meteor?]?
     let originalColor = DynamicColor(hexString: "#c0392b")
     let cellId = "cellId"
     let cellDetailId = "cellDetailId"
+    var detailedMeteorCell: UITableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class ViewController: UITableViewController {
         }
         
         self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
+        self.tableView.register(MeteorDetailCell.self, forCellReuseIdentifier: cellDetailId)
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         if self.meteorites?.count == 0 {
@@ -89,11 +91,11 @@ class ViewController: UITableViewController {
             return cell!
         }
         else {
-            if let rowData = meteorites?[getParentCellIndex(expansionIndex: indexPath.row)] {
+            if let _ = meteorites?[getParentCellIndex(expansionIndex: indexPath.row)] {
                 //  Create an ExpansionCell
-                var cell : UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as? MeteorDetailCell
+                var cell : MeteorDetailCell? = tableView.dequeueReusableCell(withIdentifier: cellDetailId) as? MeteorDetailCell
                 if cell == nil {
-                    cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
+                    cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellDetailId) as? MeteorDetailCell
                 }
                 
                 //  Get the index of the parent Cell (containing the data)
@@ -103,7 +105,9 @@ class ViewController: UITableViewController {
                 let flightIndex = indexPath.row - parentCellIndex - 1
                 
                 //  Set the cell's data
-                cell?.textLabel?.text = "test"
+                cell?.textLabel?.text = meteorites?[flightIndex]?.name
+                cell?.timeLabel.text = "test"
+                cell?.backgroundColor = originalColor.lighter(amount: 0.5)
                 cell?.selectionStyle = .none
                 return cell!
             }
@@ -125,19 +129,14 @@ class ViewController: UITableViewController {
     }
     
     func handleShowDetail(sender : UIButton){
-        print(sender.tag)
-        print("Tapped")
-        if let data = meteorites?[sender.tag] {
+        if let _ = meteorites?[sender.tag] {
             
-            // If user clicked last cell, do not try to access cell+1 (out of range)
             if(sender.tag + 1 >= (meteorites?.count)!) {
                 expandCell(tableView: tableView, index: sender.tag)
             }
             else {
-                // If next cell is not nil, then cell is not expanded
                 if(meteorites?[sender.tag+1] != nil) {
                     expandCell(tableView: tableView, index: sender.tag)
-                    // Close Cell (remove ExpansionCells)
                 } else {
                     contractCell(tableView: tableView, index: sender.tag)
                     
@@ -155,7 +154,12 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        if let _ = meteorites?[indexPath.row] {
+            return 60
+        }
+        else {
+            return 120
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -168,14 +172,16 @@ class ViewController: UITableViewController {
     }
     
     private func expandCell(tableView: UITableView, index: Int) {
-        // Expand Cell (add ExpansionCells
-        meteorites?.insert(nil, at: index + 1)
-        tableView.insertRows(at: [NSIndexPath(row: index + 1, section: 0) as IndexPath] , with: .top)
+        if let _ = meteorites?[index] {
+            meteorites?.insert(nil, at: index + 1)
+            tableView.insertRows(at: [NSIndexPath(row: index + 1, section: 0) as IndexPath] , with: .top)
+        }
     }
     
     private func contractCell(tableView: UITableView, index: Int) {
-        for i in 1...5 {
-            tableView.insertRows(at: [NSIndexPath(row: index + i, section: 0) as IndexPath] , with: .top)
+        if let _ = meteorites?[index] {
+            meteorites?.remove(at: index+1)
+                tableView.deleteRows(at: [NSIndexPath(row: index+1, section: 0) as IndexPath], with: .top)
         }
     }
     
