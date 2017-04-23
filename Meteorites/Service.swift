@@ -61,19 +61,13 @@ struct Service {
         }
     }
     
-    func fetchData(completion: @escaping ([Meteor]) -> ()) {
+    func fetchData(completion: @escaping ([Meteor]?, APIError<Service.JSONError>?) -> ()) {
         print("fetchig")
         let request: APIRequest<Meteorites, JSONError> = tron.request("")
         request.perform(withSuccess: { (meteorites) in
-            print(meteorites.meteorites.count)
-            let manager = DataManager()
-            
-            for m in meteorites.meteorites {
-                manager.add(meteor: m)
-            }
-            completion(meteorites.meteorites)
+            completion(meteorites.meteorites, nil)
         }) { (err) in
-            print("error", err)
+            completion(nil, err)
         }
     }
     

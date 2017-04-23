@@ -6,6 +6,7 @@ PODS:
   - Realm/Headers (2.5.0)
   - RealmSwift (2.5.0):
     - Realm (= 2.5.0)
+  - SideMenu (2.3.0)
   - SwiftyJSON (3.1.4)
   - TRON (2.0.1):
     - Alamofire (~> 4.1)
@@ -20,6 +21,7 @@ PODS:
 DEPENDENCIES:
   - DynamicColor
   - RealmSwift
+  - SideMenu
   - TRON (~> 2.0.0)
 
 SPEC CHECKSUMS:
@@ -27,9 +29,10 @@ SPEC CHECKSUMS:
   DynamicColor: 4786d650c69da6c3f2cbfe068348288ec4e5521f
   Realm: 62abce501668580092d2be9b6ba7324a3d5f906a
   RealmSwift: 9f1a8f624f2f153410115c2cb7d486be9976565d
+  SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   TRON: 7b9adeb678fe0e25433d207f6a734aaf145fa9b5
 
-PODFILE CHECKSUM: c3c1f2f8602e5df7491761631bf3159ad07b51f0
+PODFILE CHECKSUM: 90754e30d0702255f962e6b3516d58e918d11cdc
 
 COCOAPODS: 1.2.0

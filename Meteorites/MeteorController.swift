@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SideMenu
 
 class MeteorController: UIViewController {
 
@@ -27,14 +28,33 @@ class MeteorController: UIViewController {
         super.viewDidLoad()
         
         setupMapKit()
+        let bookmarksButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.bookmarks, target: self, action: #selector(showAllMeteorites))
+        navigationItem.rightBarButtonItem = bookmarksButton
         
+        let allMeteoritesVC = allMeteoritesController()
+        allMeteoritesVC.meteorites = meteorites
+        allMeteoritesVC.parentVC = self
+        let menuRightNavigationController = UISideMenuNavigationController(rootViewController: allMeteoritesVC)
+
+        SideMenuManager.menuRightNavigationController = menuRightNavigationController
+        
+        SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+    }
+    
+    func showAllMeteorites() {
+        present(SideMenuManager.menuRightNavigationController!, animated: true, completion: nil)
     }
 
-
-    func setupMapKit() {
+    func reloadRegion() {
         let latitude = meteor?.reclat
         let longitude = meteor?.reclong
         
+        meteorLocation = CLLocation(latitude: latitude!, longitude: longitude!)
+        centerMapOnLocation(location: meteorLocation!)
+    }
+    
+    func setupMapKit() {
         mapView = MKMapView()
         
         let leftMargin:CGFloat = 0
@@ -51,9 +71,8 @@ class MeteorController: UIViewController {
         mapView.center = view.center
         
         view.addSubview(mapView)
-        
-        meteorLocation = CLLocation(latitude: latitude!, longitude: longitude!)
-        centerMapOnLocation(location: meteorLocation!)
+    
+        reloadRegion()
         
         for m in meteorites {
             pointAnnotation = CustomPointAnnotation()

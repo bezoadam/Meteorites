@@ -19,12 +19,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-MeteoritesTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>RealmSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SideMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,22 +52,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C32E6F536D46E724A501FF471D04384</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>19864AB8F7B8E9064740E008772C4404</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1DD7D16A7DEE85D7E8C421CE5EBF1E50</key>
+		<key>495E9AB316C747A18451E7964CCCAB1B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C5D30997D5BE81922B12585C59CB228</key>
+		<key>6ABEEB5B2589B3FD0608672DC1F271CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>925B12443181DCD1CD306CC25DDFA803</key>
+		<key>8F768E28DA255A253EAA31C777C1CB98</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C2A380CB3B15D2D77160B2F244E60118</key>
+		<key>9A3A9FEDBF434A865FB4AAAAF4095072</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AE5610D92A9311ED74964A5B5CA61321</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C85349097FB5AB2DA4BF862A3699F860</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFDB692E68E59B81A260977BC2D2642A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ED46529E3271B0BAFC08301 /* Pods_MeteoritesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4516FB1D7E8597020D5F556 /* Pods_MeteoritesTests.framework */; };
 		8179639E97DB23FCA2AFD8F9 /* Pods_Meteorites.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */; };
 		844A4BA91EAB7D4400CAE710 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A4BA81EAB7D4400CAE710 /* Extensions.swift */; };
 		844A4BAC1EAB84E800CAE710 /* MeteorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844A4BAB1EAB84E800CAE710 /* MeteorController.swift */; };
@@ -24,11 +25,12 @@
 		847C81831EAA16650023BB02 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C81821EAA16650023BB02 /* Service.swift */; };
 		847C81861EAA2A6B0023BB02 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C81851EAA2A6B0023BB02 /* Meteor.swift */; };
 		847EC7A51EABDCB8009FA21C /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EC7A41EABDCB8009FA21C /* InternetReachability.swift */; };
-		84C95DA51EACA39700162C16 /* MeteoritesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C95DA41EACA39700162C16 /* MeteoritesTests.swift */; };
+		84C95DCB1EACA8AE00162C16 /* MeteoritesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C95DCA1EACA8AE00162C16 /* MeteoritesTests.swift */; };
+		84C95DD31EACD8FE00162C16 /* allMeteoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C95DD21EACD8FE00162C16 /* allMeteoritesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		84C95DA71EACA39700162C16 /* PBXContainerItemProxy */ = {
+		84C95DCD1EACA8AE00162C16 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 847C81601EA9FBC30023BB02 /* Project object */;
 			proxyType = 1;
@@ -40,6 +42,7 @@
 /* Begin PBXFileReference section */
 		44601AABDA4EF4F4F6EA604C /* Pods-Meteorites.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteorites.release.xcconfig"; path = "Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites.release.xcconfig"; sourceTree = "<group>"; };
 		63B83EA3B583D3D5B9245D60 /* Pods-Meteorites.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Meteorites.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites.debug.xcconfig"; sourceTree = "<group>"; };
+		81781347B62E4E9133A46A4C /* Pods-MeteoritesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeteoritesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeteoritesTests/Pods-MeteoritesTests.release.xcconfig"; sourceTree = "<group>"; };
 		844A4BA81EAB7D4400CAE710 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		844A4BAB1EAB84E800CAE710 /* MeteorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorController.swift; sourceTree = "<group>"; };
 		844A4BAF1EAB8BB300CAE710 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -65,12 +68,15 @@
 		848064801EAC09D90070BDAB /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Meteorites-cnrpccpnxnvadndmqsknyvijqbqc/Build/Products/Debug-iphonesimulator/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		848064811EAC09D90070BDAB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Meteorites-cnrpccpnxnvadndmqsknyvijqbqc/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		848064821EAC09D90070BDAB /* TRON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TRON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Meteorites-cnrpccpnxnvadndmqsknyvijqbqc/Build/Products/Debug-iphonesimulator/TRON/TRON.framework"; sourceTree = "<group>"; };
-		84C95D961EACA30300162C16 /* MeteoritesTests2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoritesTests2.swift; sourceTree = "<group>"; };
-		84C95D981EACA30300162C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84C95DA21EACA39700162C16 /* MeteoritesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeteoritesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C95DA41EACA39700162C16 /* MeteoritesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoritesTests.swift; sourceTree = "<group>"; };
 		84C95DA61EACA39700162C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C95DC81EACA8AE00162C16 /* MeteoritesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeteoritesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C95DCA1EACA8AE00162C16 /* MeteoritesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoritesTests.swift; sourceTree = "<group>"; };
+		84C95DCC1EACA8AE00162C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C95DD21EACD8FE00162C16 /* allMeteoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allMeteoritesController.swift; sourceTree = "<group>"; };
+		D4516FB1D7E8597020D5F556 /* Pods_MeteoritesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeteoritesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meteorites.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA2956126A361656D23A91BE /* Pods-MeteoritesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeteoritesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeteoritesTests/Pods-MeteoritesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +89,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84C95D9F1EACA39700162C16 /* Frameworks */ = {
+		84C95DC51EACA8AE00162C16 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ED46529E3271B0BAFC08301 /* Pods_MeteoritesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +105,8 @@
 			children = (
 				63B83EA3B583D3D5B9245D60 /* Pods-Meteorites.debug.xcconfig */,
 				44601AABDA4EF4F4F6EA604C /* Pods-Meteorites.release.xcconfig */,
+				FA2956126A361656D23A91BE /* Pods-MeteoritesTests.debug.xcconfig */,
+				81781347B62E4E9133A46A4C /* Pods-MeteoritesTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -115,6 +124,7 @@
 			children = (
 				847C816D1EA9FBC30023BB02 /* ViewController.swift */,
 				844A4BAB1EAB84E800CAE710 /* MeteorController.swift */,
+				84C95DD21EACD8FE00162C16 /* allMeteoritesController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -131,8 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				847C816A1EA9FBC30023BB02 /* Meteorites */,
-				84C95D951EACA30300162C16 /* MeteoritesTests2 */,
 				84C95DA31EACA39700162C16 /* MeteoritesTests */,
+				84C95DC91EACA8AE00162C16 /* MeteoritesTests */,
 				847C81691EA9FBC30023BB02 /* Products */,
 				356D4840BEFBCBD14CCDD584 /* Pods */,
 				D42FACE47E7EBB4746816CF7 /* Frameworks */,
@@ -143,7 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				847C81681EA9FBC30023BB02 /* Meteorites.app */,
-				84C95DA21EACA39700162C16 /* MeteoritesTests.xctest */,
+				84C95DC81EACA8AE00162C16 /* MeteoritesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,20 +204,20 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		84C95D951EACA30300162C16 /* MeteoritesTests2 */ = {
-			isa = PBXGroup;
-			children = (
-				84C95D961EACA30300162C16 /* MeteoritesTests2.swift */,
-				84C95D981EACA30300162C16 /* Info.plist */,
-			);
-			path = MeteoritesTests2;
-			sourceTree = "<group>";
-		};
 		84C95DA31EACA39700162C16 /* MeteoritesTests */ = {
 			isa = PBXGroup;
 			children = (
 				84C95DA41EACA39700162C16 /* MeteoritesTests.swift */,
 				84C95DA61EACA39700162C16 /* Info.plist */,
+			);
+			path = MeteoritesTests;
+			sourceTree = "<group>";
+		};
+		84C95DC91EACA8AE00162C16 /* MeteoritesTests */ = {
+			isa = PBXGroup;
+			children = (
+				84C95DCA1EACA8AE00162C16 /* MeteoritesTests.swift */,
+				84C95DCC1EACA8AE00162C16 /* Info.plist */,
 			);
 			path = MeteoritesTests;
 			sourceTree = "<group>";
@@ -224,6 +234,7 @@
 				848064821EAC09D90070BDAB /* TRON.framework */,
 				844A4BAF1EAB8BB300CAE710 /* MapKit.framework */,
 				F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */,
+				D4516FB1D7E8597020D5F556 /* Pods_MeteoritesTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,22 +262,25 @@
 			productReference = 847C81681EA9FBC30023BB02 /* Meteorites.app */;
 			productType = "com.apple.product-type.application";
 		};
-		84C95DA11EACA39700162C16 /* MeteoritesTests */ = {
+		84C95DC71EACA8AE00162C16 /* MeteoritesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84C95DA91EACA39700162C16 /* Build configuration list for PBXNativeTarget "MeteoritesTests" */;
+			buildConfigurationList = 84C95DCF1EACA8AE00162C16 /* Build configuration list for PBXNativeTarget "MeteoritesTests" */;
 			buildPhases = (
-				84C95D9E1EACA39700162C16 /* Sources */,
-				84C95D9F1EACA39700162C16 /* Frameworks */,
-				84C95DA01EACA39700162C16 /* Resources */,
+				1342A6BB0B9175C383409695 /* [CP] Check Pods Manifest.lock */,
+				84C95DC41EACA8AE00162C16 /* Sources */,
+				84C95DC51EACA8AE00162C16 /* Frameworks */,
+				84C95DC61EACA8AE00162C16 /* Resources */,
+				BBEB569E732BF49B4C7E46DD /* [CP] Embed Pods Frameworks */,
+				2B089D0782433240EB18D472 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				84C95DA81EACA39700162C16 /* PBXTargetDependency */,
+				84C95DCE1EACA8AE00162C16 /* PBXTargetDependency */,
 			);
 			name = MeteoritesTests;
 			productName = MeteoritesTests;
-			productReference = 84C95DA21EACA39700162C16 /* MeteoritesTests.xctest */;
+			productReference = 84C95DC81EACA8AE00162C16 /* MeteoritesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -289,7 +303,7 @@
 							};
 						};
 					};
-					84C95DA11EACA39700162C16 = {
+					84C95DC71EACA8AE00162C16 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = GKE89JZK98;
 						ProvisioningStyle = Automatic;
@@ -311,7 +325,7 @@
 			projectRoot = "";
 			targets = (
 				847C81671EA9FBC30023BB02 /* Meteorites */,
-				84C95DA11EACA39700162C16 /* MeteoritesTests */,
+				84C95DC71EACA8AE00162C16 /* MeteoritesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -327,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84C95DA01EACA39700162C16 /* Resources */ = {
+		84C95DC61EACA8AE00162C16 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -337,6 +351,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1342A6BB0B9175C383409695 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2B089D0782433240EB18D472 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeteoritesTests/Pods-MeteoritesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		92998E3881195457794ED9EF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -350,6 +394,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Meteorites/Pods-Meteorites-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBEB569E732BF49B4C7E46DD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeteoritesTests/Pods-MeteoritesTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C422AA854461BCAF4F30BA17 /* [CP] Embed Pods Frameworks */ = {
@@ -394,6 +453,7 @@
 				847C816E1EA9FBC30023BB02 /* ViewController.swift in Sources */,
 				844C08ED1EAA89BC00132287 /* DataManager.swift in Sources */,
 				844A4BB41EABAECC00CAE710 /* CustomPointAnnotation.swift in Sources */,
+				84C95DD31EACD8FE00162C16 /* allMeteoritesController.swift in Sources */,
 				844A4BB21EABA22A00CAE710 /* MeteorAnnotation.swift in Sources */,
 				844A4BA91EAB7D4400CAE710 /* Extensions.swift in Sources */,
 				847C81831EAA16650023BB02 /* Service.swift in Sources */,
@@ -404,21 +464,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		84C95D9E1EACA39700162C16 /* Sources */ = {
+		84C95DC41EACA8AE00162C16 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C95DA51EACA39700162C16 /* MeteoritesTests.swift in Sources */,
+				84C95DCB1EACA8AE00162C16 /* MeteoritesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		84C95DA81EACA39700162C16 /* PBXTargetDependency */ = {
+		84C95DCE1EACA8AE00162C16 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 847C81671EA9FBC30023BB02 /* Meteorites */;
-			targetProxy = 84C95DA71EACA39700162C16 /* PBXContainerItemProxy */;
+			targetProxy = 84C95DCD1EACA8AE00162C16 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -565,8 +625,9 @@
 			};
 			name = Release;
 		};
-		84C95DAA1EACA39700162C16 /* Debug */ = {
+		84C95DD01EACA8AE00162C16 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA2956126A361656D23A91BE /* Pods-MeteoritesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GKE89JZK98;
@@ -579,8 +640,9 @@
 			};
 			name = Debug;
 		};
-		84C95DAB1EACA39700162C16 /* Release */ = {
+		84C95DD11EACA8AE00162C16 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81781347B62E4E9133A46A4C /* Pods-MeteoritesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GKE89JZK98;
@@ -614,13 +676,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84C95DA91EACA39700162C16 /* Build configuration list for PBXNativeTarget "MeteoritesTests" */ = {
+		84C95DCF1EACA8AE00162C16 /* Build configuration list for PBXNativeTarget "MeteoritesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				84C95DAA1EACA39700162C16 /* Debug */,
-				84C95DAB1EACA39700162C16 /* Release */,
+				84C95DD01EACA8AE00162C16 /* Debug */,
+				84C95DD11EACA8AE00162C16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -22,7 +22,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Meteorites"
         let manager = DataManager()
-//        manager.deleteAll()
+//        smanager.deleteAll()
         
         if let results = manager.objects(type: Meteor.self) {
             self.meteorites = Array(results).sorted(by: { $0.mass > $1.mass})
@@ -30,8 +30,13 @@ class ViewController: UITableViewController {
                 let oneMeteorLastUpdateTime = Int32((self.meteorites?[0].lastUpdate.timeIntervalSinceNow)!)
                 if abs(oneMeteorLastUpdateTime) > 86400 {
                     manager.deleteAll()
-                    Service.sharedInstance.fetchData(completion: { (meteorites) in
-                        self.meteorites = Array(meteorites).sorted(by: { $0.mass > $1.mass})
+                    Service.sharedInstance.fetchData(completion: { (meteorites, err) in
+                        let manager = DataManager()
+                        
+                        for m in meteorites! {
+                            manager.add(meteor: m)
+                        }
+                        self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
                         self.tableView.dataSource = self
                         self.tableView.delegate = self
                         self.tableView.reloadData()
@@ -43,8 +48,14 @@ class ViewController: UITableViewController {
         self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
         
         if self.meteorites?.count == 0 {
-            Service.sharedInstance.fetchData(completion: { (meteorites) in
-                self.meteorites = Array(meteorites).sorted(by: { $0.mass > $1.mass})
+            Service.sharedInstance.fetchData(completion: { (meteorites, err) in
+                let manager = DataManager()
+                
+                for m in meteorites! {
+                    manager.add(meteor: m)
+                }
+                
+                self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
                 self.tableView.dataSource = self
                 self.tableView.delegate = self
                 self.tableView.reloadData()
