@@ -96,7 +96,6 @@ class ViewController: UITableViewController {
             
             cellAudioButton.tag = indexPath.row
             
-            cell?.countLabel.text = (indexPath.row + 1).stringValue  + "."
             cell?.selectionStyle = .none
             cell?.accessoryView = cellAudioButton as UIView
             
