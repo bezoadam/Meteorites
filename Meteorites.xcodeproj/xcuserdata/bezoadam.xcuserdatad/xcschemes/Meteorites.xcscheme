@@ -42,9 +42,34 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84C95DA11EACA39700162C16"
+               BlueprintIdentifier = "84C95DC71EACA8AE00162C16"
                BuildableName = "MeteoritesTests.xctest"
                BlueprintName = "MeteoritesTests"
+               ReferencedContainer = "container:Meteorites.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "MeteoritesXCTest">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8489C5031EAE9D48006A2CBB"
+               BuildableName = "MeteoritesUITests.xctest"
+               BlueprintName = "MeteoritesUITests"
+               ReferencedContainer = "container:Meteorites.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8489C5111EAE9D85006A2CBB"
+               BuildableName = "MeteoritesUIXCTests.xctest"
+               BlueprintName = "MeteoritesUIXCTests"
                ReferencedContainer = "container:Meteorites.xcodeproj">
             </BuildableReference>
          </TestableReference>
