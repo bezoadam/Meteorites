@@ -45,7 +45,9 @@ class allMeteoritesController: UITableViewController {
                 cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
             }
             
+            cell?.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 17)
             cell?.textLabel?.text = meteor.name
+            cell?.detailTextLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 10)
             cell?.detailTextLabel?.text = (meteor.mass.stringValue) + " g"
             cell?.backgroundColor = originalColor.lighter(amount: 0.45)
             cell?.selectionStyle = .none

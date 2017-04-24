@@ -21,6 +21,7 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Meteorites"
         let manager = DataManager()
 //        manager.deleteAll()
@@ -48,9 +49,16 @@ class ViewController: UITableViewController {
         
         self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
         self.tableView.register(MeteorDetailCell.self, forCellReuseIdentifier: cellDetailId)
+        self.tableView.register(MeteorCell.self, forCellReuseIdentifier: cellId)
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         if self.meteorites?.count == 0 {
+            let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+            myActivityIndicator.center = view.center
+            myActivityIndicator.hidesWhenStopped = true
+            myActivityIndicator.startAnimating()
+            view.addSubview(myActivityIndicator)
+            
             Service.sharedInstance.fetchData(completion: { (meteorites, err) in
                 let manager = DataManager()
                 
@@ -61,6 +69,7 @@ class ViewController: UITableViewController {
                 self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
                 self.tableView.dataSource = self
                 self.tableView.delegate = self
+                myActivityIndicator.stopAnimating()
                 self.tableView.reloadData()
             })
         }
@@ -69,29 +78,35 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let singleMeteor = meteorites?[indexPath.row] {
-            var cell : UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as? MeteorCell
+            var cell : MeteorCell? = tableView.dequeueReusableCell(withIdentifier: cellId) as? MeteorCell
             if cell == nil {
-                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId)
+                cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellId) as? MeteorCell
             }
             
-            cell?.textLabel?.text = singleMeteor.name
-            cell?.detailTextLabel?.text = (singleMeteor.mass.stringValue) + " g"
+            cell?.nameLabel.text = singleMeteor.name
+            cell?.detailNameLabel.text = (singleMeteor.mass.stringValue) + " g"
             cell?.backgroundColor = originalColor.lighter(amount: 0.45)
             
             let cellAudioButton = UIButton(type: .custom)
             cellAudioButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
             cellAudioButton.addTarget(self, action: #selector(handleShowDetail(sender:)), for: .touchUpInside)
+            
             cellAudioButton.setImage(UIImage(named: "expand"), for: .normal)
             cellAudioButton.contentMode = .scaleAspectFit
             
             cellAudioButton.tag = indexPath.row
+            
+            cell?.countLabel.text = (indexPath.row + 1).stringValue  + "."
             cell?.selectionStyle = .none
             cell?.accessoryView = cellAudioButton as UIView
             
             return cell!
         }
         else {
-            if let m = meteorites?[getParentCellIndex(expansionIndex: indexPath.row)] {
+            
+            let parentIndex = getParentCellIndex(expansionIndex: indexPath.row)
+                
+            if let m = meteorites?[parentIndex] {
                 var cell : MeteorDetailCell? = tableView.dequeueReusableCell(withIdentifier: cellDetailId) as? MeteorDetailCell
                 if cell == nil {
                     cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: cellDetailId) as? MeteorDetailCell
