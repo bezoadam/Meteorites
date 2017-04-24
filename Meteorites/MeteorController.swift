@@ -37,6 +37,7 @@ class MeteorController: UIViewController {
         let menuRightNavigationController = UISideMenuNavigationController(rootViewController: allMeteoritesVC)
 
         SideMenuManager.menuRightNavigationController = menuRightNavigationController
+        SideMenuManager.menuFadeStatusBar = false
         SideMenuManager.menuWidth = max(round(min((self.view.frame.width), (self.view.frame.height)) * 0.5), 240)
         
         SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)

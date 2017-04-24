@@ -18,7 +18,9 @@ class allMeteoritesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.isTranslucent = false
+        tableView.backgroundColor = originalColor.lighter(amount: 0.5)
     }
 
     override func didReceiveMemoryWarning() {

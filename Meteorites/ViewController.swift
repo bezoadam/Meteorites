@@ -173,15 +173,27 @@ class ViewController: UITableViewController {
     private func expandCell(tableView: UITableView, index: Int) {
         if let _ = meteorites?[index] {
             
+            CATransaction.begin()
+            CATransaction.setCompletionBlock({ 
+                tableView.reloadData()
+            })
             meteorites?.insert(nil, at: index + 1)
             tableView.insertRows(at: [NSIndexPath(row: index + 1, section: 0) as IndexPath] , with: .top)
+            
+            CATransaction.commit()
         }
     }
     
     private func contractCell(tableView: UITableView, index: Int) {
         if let _ = meteorites?[index] {
+            
+            CATransaction.begin()
+            CATransaction.setCompletionBlock({ 
+                tableView.reloadData()
+            })
             meteorites?.remove(at: index+1)
-                tableView.deleteRows(at: [NSIndexPath(row: index+1, section: 0) as IndexPath], with: .top)
+            tableView.deleteRows(at: [NSIndexPath(row: index + 1, section: 0) as IndexPath], with: .top)
+            CATransaction.commit()
         }
     }
     
