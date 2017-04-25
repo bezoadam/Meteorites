@@ -18,19 +18,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let viewController = ViewController(nibName: nil, bundle: nil) //ViewController = Name of your controller
         
-        let originalColor = DynamicColor(hexString: "#c0392b")
+        let originalColor = DynamicColor(hexString: "#007aff")
         
         let navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.tintColor = originalColor.lighter()
-        navigationBarAppearace.barTintColor = originalColor.darkened()
+        navigationBarAppearace.tintColor = originalColor.darkened()
+        navigationBarAppearace.barTintColor = originalColor
         
         // change navigation item title color
-        navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 30)!, NSForegroundColorAttributeName: originalColor.lighter()]
+        navigationBarAppearace.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 27)!, NSForegroundColorAttributeName: originalColor.lighter(amount: 0.5)]
         
         let navigationController = UINavigationController(rootViewController: viewController)
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         
         return true
     }

@@ -15,7 +15,7 @@ import DynamicColor
 class ViewController: UITableViewController {
     
     var meteorites: [Meteor?]?
-    let originalColor = DynamicColor(hexString: "#c0392b")
+    let originalColor = DynamicColor(hexString: "#007aff")
     let cellId = "cellId"
     let cellDetailId = "cellDetailId"
     
@@ -87,13 +87,13 @@ class ViewController: UITableViewController {
             cell?.detailNameLabel.text = (singleMeteor.mass.stringValue) + " g"
             cell?.backgroundColor = originalColor.lighter(amount: 0.45)
             
-            let cellAudioButton = UIButton(type: .custom)
-            cellAudioButton.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+            let cellAudioButton = MyButton(type: .custom)
+            cellAudioButton.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
             cellAudioButton.addTarget(self, action: #selector(handleShowDetail(sender:)), for: .touchUpInside)
-            
+            cellAudioButton.addedTouchArea = 24
             cellAudioButton.setImage(UIImage(named: "expand"), for: .normal)
             cellAudioButton.contentMode = .scaleAspectFit
-            
+            cellAudioButton.alpha = 0.5
             cellAudioButton.tag = indexPath.row
             
             cell?.selectionStyle = .none
@@ -117,7 +117,8 @@ class ViewController: UITableViewController {
                 
                 cell?.isUserInteractionEnabled = false
                 cell?.dateLabel.text = str
-                cell?.nameLabel.text = m.name + " - " + m.id.stringValue
+                cell?.idLabel.text = m.id.stringValue
+//                cell?.nameLabel.text = m.name + " - " + m.id.stringValue
                 cell?.gramsLabel.text = m.mass.stringValue + " g"
                 cell?.geoLabel.text = m.reclat.toString() + "," + m.reclong.toString()
                 cell?.backgroundColor = originalColor.lighter(amount: 0.5)
@@ -168,10 +169,10 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let _ = meteorites?[indexPath.row] {
-            return 60
+            return 50
         }
         else {
-            return 128
+            return 137
         }
     }
     

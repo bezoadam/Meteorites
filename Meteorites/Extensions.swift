@@ -9,6 +9,21 @@
 import UIKit
 import MapKit
 
+class MyButton: UIButton {
+    var addedTouchArea = CGFloat(0)
+    
+    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        
+        let newBound = CGRect(
+            x: self.bounds.origin.x - addedTouchArea,
+            y: self.bounds.origin.y - addedTouchArea,
+            width: self.bounds.width + 2 * addedTouchArea,
+            height: self.bounds.width + 2 * addedTouchArea
+        )
+        return newBound.contains(point)
+    }
+}
+
 extension Int {
     var stringValue:String {
         return "\(self)"

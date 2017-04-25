@@ -12,7 +12,7 @@ import DynamicColor
 class allMeteoritesController: UITableViewController {
 
     let cellId = "cellId"
-    let originalColor = DynamicColor(hexString: "#c0392b")
+    let originalColor = DynamicColor(hexString: "#007aff")
     var meteorites: [Meteor?]!
     weak var parentVC : MeteorController?
     
@@ -48,6 +48,7 @@ class allMeteoritesController: UITableViewController {
             cell?.textLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 17)
             cell?.textLabel?.text = meteor.name
             cell?.detailTextLabel?.font = UIFont(name: "HelveticaNeue-Light", size: 10)
+            cell?.detailTextLabel?.textColor = UIColor.gray
             cell?.detailTextLabel?.text = (meteor.mass.stringValue) + " g"
             cell?.backgroundColor = originalColor.lighter(amount: 0.45)
             cell?.selectionStyle = .none
