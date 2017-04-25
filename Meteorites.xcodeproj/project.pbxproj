@@ -25,7 +25,6 @@
 		847C81831EAA16650023BB02 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C81821EAA16650023BB02 /* Service.swift */; };
 		847C81861EAA2A6B0023BB02 /* Meteor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C81851EAA2A6B0023BB02 /* Meteor.swift */; };
 		847EC7A51EABDCB8009FA21C /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EC7A41EABDCB8009FA21C /* InternetReachability.swift */; };
-		8489C4FF1EAE9BFC006A2CBB /* MeteoritesXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489C4FE1EAE9BFC006A2CBB /* MeteoritesXCTest.swift */; };
 		8489C5071EAE9D48006A2CBB /* MeteoritesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489C5061EAE9D48006A2CBB /* MeteoritesUITests.swift */; };
 		84C95DCB1EACA8AE00162C16 /* MeteoritesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C95DCA1EACA8AE00162C16 /* MeteoritesTests.swift */; };
 		84C95DD31EACD8FE00162C16 /* allMeteoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C95DD21EACD8FE00162C16 /* allMeteoritesController.swift */; };
@@ -78,7 +77,6 @@
 		848064801EAC09D90070BDAB /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Meteorites-cnrpccpnxnvadndmqsknyvijqbqc/Build/Products/Debug-iphonesimulator/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		848064811EAC09D90070BDAB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Meteorites-cnrpccpnxnvadndmqsknyvijqbqc/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		848064821EAC09D90070BDAB /* TRON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TRON.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Meteorites-cnrpccpnxnvadndmqsknyvijqbqc/Build/Products/Debug-iphonesimulator/TRON/TRON.framework"; sourceTree = "<group>"; };
-		8489C4FE1EAE9BFC006A2CBB /* MeteoritesXCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteoritesXCTest.swift; sourceTree = "<group>"; };
 		8489C5041EAE9D48006A2CBB /* MeteoritesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeteoritesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8489C5061EAE9D48006A2CBB /* MeteoritesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoritesUITests.swift; sourceTree = "<group>"; };
 		8489C5081EAE9D48006A2CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 		84C95DA31EACA39700162C16 /* MeteoritesTests */ = {
 			isa = PBXGroup;
 			children = (
-				8489C4FE1EAE9BFC006A2CBB /* MeteoritesXCTest.swift */,
 				84C95DA41EACA39700162C16 /* MeteoritesTests.swift */,
 				84C95DA61EACA39700162C16 /* Info.plist */,
 			);
@@ -545,7 +542,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C95DCB1EACA8AE00162C16 /* MeteoritesTests.swift in Sources */,
-				8489C4FF1EAE9BFC006A2CBB /* MeteoritesXCTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

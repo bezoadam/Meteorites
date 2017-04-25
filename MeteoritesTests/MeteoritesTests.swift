@@ -11,16 +11,25 @@ import XCTest
 
 class MeteoritesTests: XCTestCase {
     
-    var meteorites: [Meteor]?
+    var vc: ViewController! = ViewController()
+    var meteorites: [Meteor?]? = [Meteor]()
     
     override func setUp() {
         super.setUp()
+        continueAfterFailure = false
         
-        Meteorites.Service.sharedInstance.fetchData(completion: { (meteorites, err) in
+        
+        let except = expectation(description: "Download should succeed")
+        
+        vc.fetchMeteorites(completion: { (err) in
             if err == nil {
-                self.meteorites = meteorites
+                except.fulfill()
             }
         })
+        waitForExpectations(timeout: 10) { (err) in
+            XCTAssertNil(err, "Test timed out! \(String(describing: err?.localizedDescription))")
+        }
+        
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -41,17 +50,24 @@ class MeteoritesTests: XCTestCase {
         }
     }
     
-    func testDownloadWithExceptation() {
-        let except = expectation(description: "Download should succeed")
+    func test1DownloadWithExceptation() {
         
-        Meteorites.Service.sharedInstance.fetchData(completion: { (meteorites, err) in
-            if err == nil {
-                except.fulfill()
-            }
-        })
         
-        waitForExpectations(timeout: 10) { (err) in
-            XCTAssertNil(err, "Test timed out! \(String(describing: err?.localizedDescription))")
-        }
+        
+    }
+    
+    func test2Date() {
+        
+        let m = vc.getMeteorites()
+
+//        Meteorites.Service.sharedInstance.fetchData(completion: { (meteorites, err) in
+//            if err == nil {
+//                self.meteorites = meteorites
+//            }
+//        })
+//        
+//        for m in meteorites! {
+//            print(m.date)
+//        }
     }
 }

@@ -87,17 +87,17 @@ class ViewController: UITableViewController {
             cell?.detailNameLabel.text = (singleMeteor.mass.stringValue) + " g"
             cell?.backgroundColor = originalColor.lighter(amount: 0.45)
             
-            let cellAudioButton = MyButton(type: .custom)
-            cellAudioButton.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
-            cellAudioButton.addTarget(self, action: #selector(handleShowDetail(sender:)), for: .touchUpInside)
-            cellAudioButton.addedTouchArea = 24
-            cellAudioButton.setImage(UIImage(named: "expand"), for: .normal)
-            cellAudioButton.contentMode = .scaleAspectFit
-            cellAudioButton.alpha = 0.5
-            cellAudioButton.tag = indexPath.row
+            let cellExpandButton = MyButton(type: .custom)
+            cellExpandButton.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+            cellExpandButton.addTarget(self, action: #selector(handleShowDetail(sender:)), for: .touchUpInside)
+            cellExpandButton.addedTouchArea = 24
+            cellExpandButton.setImage(UIImage(named: "expand"), for: .normal)
+            cellExpandButton.contentMode = .scaleAspectFit
+            cellExpandButton.alpha = 0.5
+            cellExpandButton.tag = indexPath.row
             
             cell?.selectionStyle = .none
-            cell?.accessoryView = cellAudioButton as UIView
+            cell?.accessoryView = cellExpandButton as UIView
             
             return cell!
         }
@@ -112,7 +112,7 @@ class ViewController: UITableViewController {
                 }
                 
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                dateFormatter.dateFormat = "yyyy"
                 let str = dateFormatter.string(from:m.date)
                 
                 cell?.isUserInteractionEnabled = false
@@ -212,6 +212,21 @@ class ViewController: UITableViewController {
         }
     }
     
+    func getMeteorites() -> [Meteor?] {
+        return self.meteorites!
+    }
+    
+    public func fetchMeteorites(completion: @escaping (APIError<Service.JSONError>?) -> ()) {
+        
+        Service.sharedInstance.fetchData { (meteorites,error) in
+            if ((error) != nil) {
+                completion(error)
+            } else {
+                self.meteorites = meteorites
+                completion(nil)
+            }
+        }
+    }
 }
 
 

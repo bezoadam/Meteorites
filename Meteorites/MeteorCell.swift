@@ -13,6 +13,7 @@ class MeteorCell: UITableViewCell {
     var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue-Light", size: 17)
+        label.accessibilityIdentifier = "nameLabel"
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -21,6 +22,7 @@ class MeteorCell: UITableViewCell {
     var detailNameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue-Light", size: 11)
+        label.accessibilityIdentifier = "detailNameLabel"
         label.textColor = UIColor.gray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -29,6 +31,7 @@ class MeteorCell: UITableViewCell {
     let nasaImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "nasa")
+        imageView.accessibilityIdentifier = "nasaIcon"
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -52,12 +55,9 @@ class MeteorCell: UITableViewCell {
         nameLabel.leftAnchor.constraint(equalTo: nasaImageView.rightAnchor, constant: 13).isActive = true
         nameLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         detailNameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
         detailNameLabel.widthAnchor.constraint(equalTo: nameLabel.widthAnchor).isActive = true
-//        detailNameLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        detailTextLabel?.heightAnchor.constraint(equalToConstant: 20).isActive = true
         detailNameLabel.leftAnchor.constraint(equalTo: nasaImageView.rightAnchor, constant: 13).isActive = true
     }
     

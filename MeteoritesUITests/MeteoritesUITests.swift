@@ -9,18 +9,17 @@
 import XCTest
 
 class MeteoritesUITests: XCTestCase {
-        
+    
+    var app: XCUIApplication!
+    
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        continueAfterFailure = false
+
+        XCUIApplication().launch()
+        app = XCUIApplication()
+
     }
     
     override func tearDown() {
@@ -34,15 +33,34 @@ class MeteoritesUITests: XCTestCase {
     }
     
     func testTableCellsCount() {
-        let table = XCUIApplication().tables
-        XCTAssertEqual(table.cells.count, 7, "Rows equals.")
+        let table = app?.tables
+        XCTAssertEqual(table?.cells.count, 7, "Rows equals on app start.")
     }
     
     func testCellExpanding() {
-        let app = XCUIApplication()
-        let table = app.tables
-        table.cells.containing(.staticText, identifier:"Chelyabinsk").buttons["expand"].tap()
-        XCTAssertEqual(table.cells.count, 8, "Rows Equals")
+        let table = app?.tables
+        table?.cells.element(boundBy: 0).buttons["expand"].tap()
+        XCTAssertEqual(table?.cells.count, 8, "Rows count does not equal after expanding")
     }
     
+    func testCellClick() {
+        let cell = app.tables.cells.element(boundBy: 0)
+        let cell_title = cell.staticTexts["nameLabel"].label
+        cell.tap()
+        
+        XCTAssertTrue(app.staticTexts[cell_title].exists)
+    }
+    
+    func testAnnotationClick() {
+        let cell = app.tables.cells.element(boundBy: 0)
+        let cell_title = cell.staticTexts["nameLabel"].label
+        let cell_detailName = cell.staticTexts["detailNameLabel"].label
+        let fullAnnotationName = cell_title + ", " + cell_detailName
+        cell.tap()
+        let annotation = app.maps.element.otherElements[cell_title]
+//        annotation.tap()
+        
+        
+        XCTAssertTrue(annotation.exists)
+    }
 }
