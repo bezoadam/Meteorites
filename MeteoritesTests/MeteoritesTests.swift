@@ -12,7 +12,6 @@ import XCTest
 class MeteoritesTests: XCTestCase {
     
     var vc: ViewController! = ViewController()
-    var meteorites: [Meteor?]? = [Meteor]()
     
     override func setUp() {
         super.setUp()
@@ -36,6 +35,7 @@ class MeteoritesTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        vc = nil
     }
     
     func testExample() {
@@ -50,24 +50,26 @@ class MeteoritesTests: XCTestCase {
         }
     }
     
-    func test1DownloadWithExceptation() {
-        
-        
-        
+    func testIfDataIsDownloaded() {
+        let m = vc.getMeteorites()
+        XCTAssertNotNil(m)
     }
     
-    func test2Date() {
+    func testIfDateIsValid() {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        let ref_date = dateFormatter.date(from: "2011-01-01T00:00:00.000")
         
         let m = vc.getMeteorites()
-
-//        Meteorites.Service.sharedInstance.fetchData(completion: { (meteorites, err) in
-//            if err == nil {
-//                self.meteorites = meteorites
-//            }
-//        })
-//        
-//        for m in meteorites! {
-//            print(m.date)
-//        }
+        
+        for meteor in m {
+            if ref_date! > (meteor?.date)! {
+                XCTFail("There is wrong date in fetched data")
+            }
+        }
     }
+    
+    
 }

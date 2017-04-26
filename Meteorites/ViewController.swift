@@ -47,6 +47,9 @@ class ViewController: UITableViewController {
             }
         }
         
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(refreshData))
+        navigationItem.rightBarButtonItem = refreshButton
+        
         self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
         self.tableView.register(MeteorDetailCell.self, forCellReuseIdentifier: cellDetailId)
         self.tableView.register(MeteorCell.self, forCellReuseIdentifier: cellId)
@@ -60,17 +63,25 @@ class ViewController: UITableViewController {
             view.addSubview(myActivityIndicator)
             
             Service.sharedInstance.fetchData(completion: { (meteorites, err) in
-                let manager = DataManager()
                 
-                for m in meteorites! {
-                    manager.add(meteor: m)
+                if err != nil {
+                    let alert = UIAlertController(title: "Error", message: "Can't download data from site. Try again later please.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
-                
-                self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
-                self.tableView.dataSource = self
-                self.tableView.delegate = self
+                else {
+                    let manager = DataManager()
+                    
+                    for m in meteorites! {
+                        manager.add(meteor: m)
+                    }
+                    
+                    self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
+                    self.tableView.dataSource = self
+                    self.tableView.delegate = self
+                    self.tableView.reloadData()
+                }
                 myActivityIndicator.stopAnimating()
-                self.tableView.reloadData()
             })
         }
     }
@@ -212,8 +223,14 @@ class ViewController: UITableViewController {
         }
     }
     
-    func getMeteorites() -> [Meteor?] {
-        return self.meteorites!
+    func refreshData() {
+        fetchMeteorites { (err) in
+            if (err != nil) {
+                let alert = UIAlertController(title: "Error", message: "Can't download data from site. Try again later please.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     public func fetchMeteorites(completion: @escaping (APIError<Service.JSONError>?) -> ()) {
@@ -222,7 +239,8 @@ class ViewController: UITableViewController {
             if ((error) != nil) {
                 completion(error)
             } else {
-                self.meteorites = meteorites
+                self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
+                self.tableView.reloadData()
                 completion(nil)
             }
         }

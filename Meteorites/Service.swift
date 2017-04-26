@@ -22,7 +22,6 @@ struct Service {
         
         required init(json: JSON) throws {
             print("fetched")
-            print(json)
             var meteorites = [Meteor]()
             
             for meteorJson in json.array! {
