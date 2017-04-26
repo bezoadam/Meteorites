@@ -39,7 +39,6 @@ class MeteorCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        //addSubview(countLabel)
         addSubview(nasaImageView)
         addSubview(nameLabel)
         addSubview(detailNameLabel)

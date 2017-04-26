@@ -27,9 +27,10 @@ class MeteorController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupMapKit()
         let bookmarksButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.bookmarks, target: self, action: #selector(showAllMeteorites))
         navigationItem.rightBarButtonItem = bookmarksButton
+        
+        setupMapKit()
         
         let allMeteoritesVC = allMeteoritesController()
         allMeteoritesVC.meteorites = meteorites
@@ -99,6 +100,7 @@ class MeteorController: UIViewController {
     }
     
     
+    // MARK: Transition handler
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         DispatchQueue.main.async {
             self.mapView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)

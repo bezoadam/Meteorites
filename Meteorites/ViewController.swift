@@ -29,7 +29,6 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = refreshButton
         
         let manager = DataManager()
-//        manager.deleteAll()
         
         if let results = manager.objects(type: Meteor.self) {
             self.meteorites = Array(results).sorted(by: { $0.mass > $1.mass})
@@ -48,6 +47,7 @@ class ViewController: UITableViewController {
         }
     }
     
+    // MARK: tableView datasource
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let singleMeteor = meteorites?[indexPath.row] {
@@ -91,7 +91,6 @@ class ViewController: UITableViewController {
                 cell?.isUserInteractionEnabled = false
                 cell?.dateLabel.text = str
                 cell?.idLabel.text = m.id.stringValue
-//                cell?.nameLabel.text = m.name + " - " + m.id.stringValue
                 cell?.gramsLabel.text = m.mass.stringValue + " g"
                 cell?.geoLabel.text = m.reclat.toString() + "," + m.reclong.toString()
                 cell?.backgroundColor = originalColor.lighter(amount: 0.5)
@@ -102,36 +101,6 @@ class ViewController: UITableViewController {
         return UITableViewCell()
     }
     
-    private func getParentCellIndex(expansionIndex: Int) -> Int {
-        
-        var selectedCell: Meteor?
-        var selectedCellIndex = expansionIndex
-        
-        while(selectedCell == nil && selectedCellIndex >= 0) {
-            selectedCellIndex -= 1
-            selectedCell = meteorites?[selectedCellIndex]
-        }
-        
-        return selectedCellIndex
-    }
-    
-    func handleShowDetail(sender : UIButton){
-        if let _ = meteorites?[sender.tag] {
-            
-            if(sender.tag + 1 >= (meteorites?.count)!) {
-                expandCell(tableView: tableView, index: sender.tag)
-            }
-            else {
-                if(meteorites?[sender.tag+1] != nil) {
-                    expandCell(tableView: tableView, index: sender.tag)
-                } else {
-                    contractCell(tableView: tableView, index: sender.tag)
-                    
-                }
-            }
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (meteorites!.count)
     }
@@ -140,6 +109,7 @@ class ViewController: UITableViewController {
         return 1
     }
     
+    // MARK: tableView delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let _ = meteorites?[indexPath.row] {
             return 50
@@ -156,6 +126,38 @@ class ViewController: UITableViewController {
         vc.meteorites = meteorites?.removeNils()
         tableView.deselectRow(at: indexPath, animated: false)
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    
+    private func getParentCellIndex(expansionIndex: Int) -> Int {
+        
+        var selectedCell: Meteor?
+        var selectedCellIndex = expansionIndex
+        
+        while(selectedCell == nil && selectedCellIndex >= 0) {
+            selectedCellIndex -= 1
+            selectedCell = meteorites?[selectedCellIndex]
+        }
+        
+        return selectedCellIndex
+    }
+    
+    // MARK: handlers
+    func handleShowDetail(sender : UIButton){
+        if let _ = meteorites?[sender.tag] {
+            
+            if(sender.tag + 1 >= (meteorites?.count)!) {
+                expandCell(tableView: tableView, index: sender.tag)
+            }
+            else {
+                if(meteorites?[sender.tag+1] != nil) {
+                    expandCell(tableView: tableView, index: sender.tag)
+                } else {
+                    contractCell(tableView: tableView, index: sender.tag)
+                    
+                }
+            }
+        }
     }
     
     private func expandCell(tableView: UITableView, index: Int) {
@@ -185,10 +187,6 @@ class ViewController: UITableViewController {
         }
     }
     
-    public func getMeteorites() -> [Meteor?]{
-        return self.meteorites!
-    }
-    
     func refreshDB() {
         let manager = DataManager()
         manager.deleteAll()
@@ -199,7 +197,7 @@ class ViewController: UITableViewController {
     }
     
     func refreshData() {
-
+        
         showActivityIndicatory(uiView: self.view)
         
         fetchMeteorites { (err) in
@@ -227,6 +225,12 @@ class ViewController: UITableViewController {
         }
     }
     
+    // MARK: testable
+    public func getMeteorites() -> [Meteor?]{
+        return self.meteorites!
+    }
+    
+    // MARK: view setup
     func setupTableView() {
         self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
         self.tableView.register(MeteorDetailCell.self, forCellReuseIdentifier: cellDetailId)

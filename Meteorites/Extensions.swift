@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+// Custom button for bigger tap area
 class MyButton: UIButton {
     var addedTouchArea = CGFloat(0)
     
@@ -30,6 +31,13 @@ extension Int {
     }
 }
 
+extension Double {
+    func toString() -> String {
+        return String(format: "%.5f",self)
+    }
+}
+
+//Custom annotation on mapView
 extension MeteorController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -50,6 +58,7 @@ extension MeteorController: MKMapViewDelegate {
     }
 }
 
+//Removing nils from array
 protocol OptionalType {
     associatedtype Wrapped
     func map<U>(_ f: (Wrapped) throws -> U) rethrows -> U?
@@ -66,11 +75,5 @@ extension Sequence where Iterator.Element: OptionalType {
             }
         }
         return result
-    }
-}
-
-extension Double {
-    func toString() -> String {
-        return String(format: "%.5f",self)
     }
 }

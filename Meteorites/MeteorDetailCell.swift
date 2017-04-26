@@ -88,7 +88,6 @@ class MeteorDetailCell: UITableViewCell {
         addSubview(dateImageView)
         addSubview(gramsImageView)
         addSubview(geoImageView)
-//        addSubview(nameLabel)
         addSubview(idLabel)
         addSubview(idImageView)
         addSubview(gramsLabel)
@@ -96,10 +95,6 @@ class MeteorDetailCell: UITableViewCell {
         addSubview(dateLabel)
         
         //x,y,width,height
-//        nameLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-//        nameLabel.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        nameLabel.centerYAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-//        nameLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         idImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 13).isActive = true
         idImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
