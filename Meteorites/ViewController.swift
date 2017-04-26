@@ -14,6 +14,8 @@ import DynamicColor
 
 class ViewController: UITableViewController {
     
+    var activityIndicatorView: UIView?
+    var activityIndicator: UIActivityIndicatorView?
     var meteorites: [Meteor?]?
     let originalColor = DynamicColor(hexString: "#007aff")
     let cellId = "cellId"
@@ -22,7 +24,10 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Meteorites"
+        title = "Meteorites"
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(refreshData))
+        navigationItem.rightBarButtonItem = refreshButton
+        
         let manager = DataManager()
 //        manager.deleteAll()
         
@@ -31,58 +36,15 @@ class ViewController: UITableViewController {
             if (self.meteorites?.count)! > 0 && InternetReachability.isConnectedToNetwork(){
                 let oneMeteorLastUpdateTime = Int32((self.meteorites?[0]?.lastUpdate.timeIntervalSinceNow)!)
                 if abs(oneMeteorLastUpdateTime) > 86400 {
-                    Service.sharedInstance.fetchData(completion: { (meteorites, err) in
-                        let manager = DataManager()
-                        manager.deleteAll()
-                        
-                        for m in meteorites! {
-                            manager.add(meteor: m)
-                        }
-                        self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
-                        self.tableView.dataSource = self
-                        self.tableView.delegate = self
-                        self.tableView.reloadData()
-                    })
+                    refreshData()
                 }
             }
         }
         
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.refresh, target: self, action: #selector(refreshData))
-        navigationItem.rightBarButtonItem = refreshButton
-        
-        self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
-        self.tableView.register(MeteorDetailCell.self, forCellReuseIdentifier: cellDetailId)
-        self.tableView.register(MeteorCell.self, forCellReuseIdentifier: cellId)
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        setupTableView()
         
         if self.meteorites?.count == 0 {
-            let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-            myActivityIndicator.center = view.center
-            myActivityIndicator.hidesWhenStopped = true
-            myActivityIndicator.startAnimating()
-            view.addSubview(myActivityIndicator)
-            
-            Service.sharedInstance.fetchData(completion: { (meteorites, err) in
-                
-                if err != nil {
-                    let alert = UIAlertController(title: "Error", message: "Can't download data from site. Try again later please.", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-                else {
-                    let manager = DataManager()
-                    
-                    for m in meteorites! {
-                        manager.add(meteor: m)
-                    }
-                    
-                    self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
-                    self.tableView.dataSource = self
-                    self.tableView.delegate = self
-                    self.tableView.reloadData()
-                }
-                myActivityIndicator.stopAnimating()
-            })
+            refreshData()
         }
     }
     
@@ -227,7 +189,17 @@ class ViewController: UITableViewController {
         return self.meteorites!
     }
     
+    func refreshDB() {
+        let manager = DataManager()
+        manager.deleteAll()
+        
+        for m in meteorites! {
+            manager.add(meteor: m!)
+        }
+    }
+    
     func refreshData() {
+
         showActivityIndicatory(uiView: self.view)
         
         fetchMeteorites { (err) in
@@ -246,15 +218,21 @@ class ViewController: UITableViewController {
             if ((error) != nil) {
                 completion(error)
             } else {
+                
                 self.meteorites = Array(meteorites!).sorted(by: { $0.mass > $1.mass})
+                self.refreshDB()
                 self.tableView.reloadData()
                 completion(nil)
             }
         }
     }
     
-    var activityIndicatorView: UIView?
-    var activityIndicator: UIActivityIndicatorView?
+    func setupTableView() {
+        self.tableView.backgroundColor = originalColor.lighter(amount: 0.5)
+        self.tableView.register(MeteorDetailCell.self, forCellReuseIdentifier: cellDetailId)
+        self.tableView.register(MeteorCell.self, forCellReuseIdentifier: cellId)
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+    }
     
     func showActivityIndicatory(uiView: UIView) {
         activityIndicatorView = UIView()
