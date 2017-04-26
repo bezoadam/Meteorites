@@ -71,5 +71,15 @@ class MeteoritesTests: XCTestCase {
         }
     }
     
-    
+    func testIfSorted() {
+        let m = vc.getMeteorites()
+        
+        for i in 0 ..< m.count {
+            if i + 1 == m.count {
+                return
+            }
+            XCTAssertGreaterThan((m[i]?.mass)!, (m[i + 1]?.mass)!, "Meteorites are not sorted.")
+        }
+    }
+
 }

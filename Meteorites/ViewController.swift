@@ -223,13 +223,20 @@ class ViewController: UITableViewController {
         }
     }
     
+    public func getMeteorites() -> [Meteor?]{
+        return self.meteorites!
+    }
+    
     func refreshData() {
+        showActivityIndicatory(uiView: self.view)
+        
         fetchMeteorites { (err) in
             if (err != nil) {
                 let alert = UIAlertController(title: "Error", message: "Can't download data from site. Try again later please.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
+            self.hideActivityIndicator(uiView: self.activityIndicatorView!)
         }
     }
     
@@ -245,6 +252,38 @@ class ViewController: UITableViewController {
             }
         }
     }
+    
+    var activityIndicatorView: UIView?
+    var activityIndicator: UIActivityIndicatorView?
+    
+    func showActivityIndicatory(uiView: UIView) {
+        activityIndicatorView = UIView()
+        activityIndicatorView?.frame = uiView.frame
+        activityIndicatorView?.center = uiView.center
+        
+        let loadingView: UIView = UIView()
+        loadingView.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        loadingView.center = uiView.center
+        loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        loadingView.clipsToBounds = true
+        loadingView.layer.cornerRadius = 10
+        
+        activityIndicator = UIActivityIndicatorView()
+        activityIndicator?.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        activityIndicator?.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicator?.center = CGPoint(x: loadingView.frame.size.width / 2, y: loadingView.frame.size.height / 2)
+        loadingView.addSubview(activityIndicator!)
+        activityIndicatorView?.addSubview(loadingView)
+        uiView.addSubview(activityIndicatorView!)
+        activityIndicator?.startAnimating()
+    }
+    
+    func hideActivityIndicator(uiView: UIView) {
+        activityIndicator?.stopAnimating()
+        uiView.removeFromSuperview()
+    }
+    
 }
 
 

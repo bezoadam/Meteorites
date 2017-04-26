@@ -27,7 +27,7 @@
 		847EC7A51EABDCB8009FA21C /* InternetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847EC7A41EABDCB8009FA21C /* InternetReachability.swift */; };
 		8489C5071EAE9D48006A2CBB /* MeteoritesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489C5061EAE9D48006A2CBB /* MeteoritesUITests.swift */; };
 		84C95DCB1EACA8AE00162C16 /* MeteoritesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C95DCA1EACA8AE00162C16 /* MeteoritesTests.swift */; };
-		84C95DD31EACD8FE00162C16 /* allMeteoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C95DD21EACD8FE00162C16 /* allMeteoritesController.swift */; };
+		84C95DD31EACD8FE00162C16 /* AllMeteoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C95DD21EACD8FE00162C16 /* AllMeteoritesController.swift */; };
 		84EB7D9B1EAD16BB0025B0A3 /* MeteorDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB7D9A1EAD16BB0025B0A3 /* MeteorDetailCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,7 +85,7 @@
 		84C95DC81EACA8AE00162C16 /* MeteoritesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeteoritesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C95DCA1EACA8AE00162C16 /* MeteoritesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoritesTests.swift; sourceTree = "<group>"; };
 		84C95DCC1EACA8AE00162C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84C95DD21EACD8FE00162C16 /* allMeteoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allMeteoritesController.swift; sourceTree = "<group>"; };
+		84C95DD21EACD8FE00162C16 /* AllMeteoritesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllMeteoritesController.swift; sourceTree = "<group>"; };
 		84EB7D9A1EAD16BB0025B0A3 /* MeteorDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeteorDetailCell.swift; sourceTree = "<group>"; };
 		D4516FB1D7E8597020D5F556 /* Pods_MeteoritesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeteoritesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F233E19C3B88728F624E3BD3 /* Pods_Meteorites.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Meteorites.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,7 +144,7 @@
 			children = (
 				847C816D1EA9FBC30023BB02 /* ViewController.swift */,
 				844A4BAB1EAB84E800CAE710 /* MeteorController.swift */,
-				84C95DD21EACD8FE00162C16 /* allMeteoritesController.swift */,
+				84C95DD21EACD8FE00162C16 /* AllMeteoritesController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -518,7 +518,7 @@
 				844C08ED1EAA89BC00132287 /* DataManager.swift in Sources */,
 				84EB7D9B1EAD16BB0025B0A3 /* MeteorDetailCell.swift in Sources */,
 				844A4BB41EABAECC00CAE710 /* CustomPointAnnotation.swift in Sources */,
-				84C95DD31EACD8FE00162C16 /* allMeteoritesController.swift in Sources */,
+				84C95DD31EACD8FE00162C16 /* AllMeteoritesController.swift in Sources */,
 				844A4BB21EABA22A00CAE710 /* MeteorAnnotation.swift in Sources */,
 				844A4BA91EAB7D4400CAE710 /* Extensions.swift in Sources */,
 				847C81831EAA16650023BB02 /* Service.swift in Sources */,
