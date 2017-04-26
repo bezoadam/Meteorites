@@ -22,3 +22,13 @@ target 'MeteoritesTests' do
   pod 'DynamicColor'
   pod 'SideMenu'
 end
+
+target 'MeteoritesUITests' do
+  use_frameworks!
+
+  # Pods for MeteoritesTests
+  pod 'RealmSwift’
+  pod 'TRON', '~> 2.0.0'
+  pod 'DynamicColor'
+  pod 'SideMenu'
+end

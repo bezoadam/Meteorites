@@ -51,16 +51,14 @@ class MeteoritesUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts[cell_title].exists)
     }
     
-    func testAnnotationClick() {
+    func testShowAllMeteorites() {
         let cell = app.tables.cells.element(boundBy: 0)
         let cell_title = cell.staticTexts["nameLabel"].label
-        let cell_detailName = cell.staticTexts["detailNameLabel"].label
-        let fullAnnotationName = cell_title + ", " + cell_detailName
         cell.tap()
-        let annotation = app.maps.element.otherElements[cell_title]
-//        annotation.tap()
         
+        app.navigationBars[cell_title].buttons["Bookmarks"].tap()
         
-        XCTAssertTrue(annotation.exists)
+        XCTAssertTrue(app.navigationBars[cell_title].exists, "Show all meteorites not working")
+    
     }
 }

@@ -16,8 +16,7 @@ class MeteoritesTests: XCTestCase {
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
-        
-        
+                
         let except = expectation(description: "Download should succeed")
         
         vc.fetchMeteorites(completion: { (err) in
@@ -28,8 +27,6 @@ class MeteoritesTests: XCTestCase {
         waitForExpectations(timeout: 10) { (err) in
             XCTAssertNil(err, "Test timed out! \(String(describing: err?.localizedDescription))")
         }
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
     override func tearDown() {
@@ -50,9 +47,20 @@ class MeteoritesTests: XCTestCase {
         }
     }
     
+    
     func testIfDataIsDownloaded() {
         let m = vc.getMeteorites()
         XCTAssertNotNil(m)
+    }
+    
+    func testIf1MeteorIsValid() {
+        let m = vc.getMeteorites()
+        
+        for meteor in m {
+            XCTAssertNotNil(meteor?.name, "Meteor name does not exist")
+            XCTAssertNotNil(meteor?.mass, "Meteor mass does not exist")
+            XCTAssertNotNil(meteor?.date, "Meteor date does not exist")
+        }
     }
     
     func testIfDateIsValid() {

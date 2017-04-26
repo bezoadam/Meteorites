@@ -35,7 +35,7 @@ class ViewController: UITableViewController {
             self.meteorites = Array(results).sorted(by: { $0.mass > $1.mass})
             if (self.meteorites?.count)! > 0 && InternetReachability.isConnectedToNetwork(){
                 let oneMeteorLastUpdateTime = Int32((self.meteorites?[0]?.lastUpdate.timeIntervalSinceNow)!)
-                if abs(oneMeteorLastUpdateTime) > 86400 {
+                if abs(oneMeteorLastUpdateTime) > 1 {
                     refreshData()
                 }
             }
